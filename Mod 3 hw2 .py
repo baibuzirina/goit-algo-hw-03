@@ -4,7 +4,7 @@ import random
 print("Умови лотереї: ")    
 min_value = int(input("Введіть мінімальне число (min >=1): "))
 max_value = int(input("Введіть максимальне число (max <=1000): "))
-quantity_value = int(input("Введіть кількість чисел, які потрібно вибрати (quantity від 1 та між min і max) : "))
+quantity_value = int(input("Введіть кількість чисел, які потрібно вибрати (quantity від 1 та між min та max) : "))
 
 def get_numbers_ticket(min_value, max_value, quantity_value):
 
@@ -13,9 +13,9 @@ def get_numbers_ticket(min_value, max_value, quantity_value):
         if not (1 <= min_value <= max_value <= 1000):
             print(f"Помилка при введенні діапазону чисел в лотереї (від 1 до 1000)")
             return []
-        
+
         if not (1 <= quantity_value <= (max_value-min_value+1)):
-            print(f"Помилка в веденні кількості чисел, які потрібно вибрати (від 1 та між min і max)")   
+            print(f"Помилка в веденні кількості чисел, які потрібно вибрати (від 1 та між min та max)")   
             return []
 
         # Генерація та сортування унікальних випадкових чисел
