@@ -1,19 +1,16 @@
 from datetime import datetime
 
-def get_days_from_today():
-
+def get_days_from_today(date):
+    
     try:
 
-    # Введення дати
-        date_input = input("Введіть дату у форматі 'РРРР-ММ-ДД' (наприклад, 2020-10-09): ") 
+        # Перетворення рядка у datetime
+        given_date = datetime.strptime(date, "%Y-%m-%d").date()
 
-    # Перетворення рядка у datetime
-        given_date = datetime.strptime(date_input, "%Y-%m-%d").date()
-
-    # Поточна дата
+        # Поточна дата
         today = datetime.today().date()
 
-    # Різниця між датами
+        # Різниця між датами
         delta = today - given_date
         return delta.days
 
@@ -21,6 +18,11 @@ def get_days_from_today():
         print("Помилка. Введіть дату у форматі 'РРРР-ММ-ДД' (наприклад, '2020-10-09').")
         return None
 
-result = get_days_from_today()
+
+# Введення дати
+date_input = input("Введіть дату у форматі 'РРРР-ММ-ДД' (наприклад, 2020-10-09): ") 
+
+result = get_days_from_today(date_input)
+
 if result is not None:  # Якщо немає помилки
     print(f"Різниця між поточною датою та заданою датою: {result}")
